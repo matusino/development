@@ -2,4 +2,19 @@
 		
 {% block title %} Welcome to articles {% endblock %}
 
-{% block main %} Cauko som matusik  {% endblock %}
+{% block main %} 
+	{% if articles %}
+		<ul>
+			{% for id, article in articles %}
+			<li>
+				<h2><a href="{{ url_for("view_article", art_id=id) }}"> {{ article.title }}</a></h2>
+				<p> {{ article.content }}</p>
+			</li>
+		{% endfor %}	
+		</ul>
+	{% else %}
+		<p>
+			No articles :(
+		</p>
+	{% endif %}
+{% endblock %}
