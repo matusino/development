@@ -1,8 +1,8 @@
 {% extends "_main.jinja" %}
-		
+
 {% block title %} Welcome to articles {% endblock %}
 
-{% block main %} 
+{% block main %}
 	{% if articles %}
 		<ul>
 			{% for id, article in articles %}
@@ -10,7 +10,7 @@
 				<h2><a href="{{ url_for("view_article", art_id=id) }}"> {{ article.title }}</a></h2>
 				<p> {{ article.content }}</p>
 			</li>
-		{% endfor %}	
+		{% endfor %}
 		</ul>
 	{% else %}
 		<p>
@@ -18,3 +18,4 @@
 		</p>
 	{% endif %}
 {% endblock %}
+
